@@ -1,3 +1,8 @@
 = Mavatar
 
-This project rocks and uses MIT-LICENSE.
+This project is basically a gravatar cahce.
+
+Use it by mounting this engine inside any other rails application, for example by
+adding the following line to /config/routes.rb:
+
+    mount Mavatar::Engine, at: "/mavatar"
