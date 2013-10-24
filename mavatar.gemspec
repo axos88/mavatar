@@ -7,11 +7,11 @@ require "mavatar/version"
 Gem::Specification.new do |s|
   s.name        = "mavatar"
   s.version     = Mavatar::VERSION
-  s.authors     = ["TODO: Your name"]
-  s.email       = ["TODO: Your email"]
-  s.homepage    = "TODO"
-  s.summary     = "TODO: Summary of Mavatar."
-  s.description = "TODO: Description of Mavatar."
+  s.authors     = ["Akos Vandra"]
+  s.email       = ["axos88@gmail.com"]
+  s.homepage    = "http://www.akosv.com"
+  s.summary     = "Gravatar fallthrough cache"
+  s.description = ""
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]
 
