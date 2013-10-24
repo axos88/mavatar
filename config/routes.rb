@@ -1,3 +1,3 @@
 Mavatar::Engine.routes.draw do
-  root "image/show"
+  match "/avatar/:hash", controller: "image", action: "show", via: [:get]
 end
