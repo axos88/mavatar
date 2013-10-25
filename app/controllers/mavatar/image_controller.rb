@@ -6,6 +6,7 @@ module Mavatar
     CACHE_TIME = 6.hours
     CLEANUP_FREQUENCY = 2000 # Every 2000 requests
 
+
     before_action :clean
 
     def show
@@ -46,6 +47,10 @@ module Mavatar
         req
       end
 
+      def generate_full_path(filename)
+        File.join(Rails.root, 'tmp', 'cache', 'avatars', filename)
+      end
+
       def generate_cache_filename(params)
         hash = params[:hash]
         req = req_from_params(params)
@@ -81,7 +86,10 @@ module Mavatar
       end
 
       def remove_old_cached_files
-        p "remove"
+        Dir.entries(generate_full_path("")).each do |name|
+          file = generate_full_path(name)
+          File.delete(file) if mtime(file) < CACHE_TIME.ago
+        end
       end
   end
 end
