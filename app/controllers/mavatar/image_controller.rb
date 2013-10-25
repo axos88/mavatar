@@ -82,13 +82,14 @@ module Mavatar
       end
 
       def should_clean
-        rand < 1/CLEANUP_FREQUENCY
+        rand < 1.0/CLEANUP_FREQUENCY
       end
 
       def remove_old_cached_files
+        p "Removind old cached files"
         Dir.entries(generate_full_path("")).each do |name|
           file = generate_full_path(name)
-          File.delete(file) if mtime(file) < CACHE_TIME.ago
+          File.delete(file) if File.mtime(file) < CACHE_TIME.ago unless File.directory?(file)
         end
       end
   end
